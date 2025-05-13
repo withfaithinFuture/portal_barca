@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona - Состав</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="page-background" style="background-image: url('/media/background/bg.png');"></div>
+    <header>
+        <h1 style="color: white !important;">Состав FC Barcelona</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'history' %}">История клуба</a></li>
+                <li><a href="{% url 'squad' %}">Состав команды</a></li>
+                {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Выйти
+                    </button>
+                </form>
+                {% else %}
+                    <li><a href="{% url 'auth' %}">Войти</a></li>
+                    <li><a href="{% url 'register' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Основной состав</h2>
+            <div class="squad-list">
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/sh.png');"></div>
+                    <h3>Войцех Щенсны</h3>
+                    <p>Вратарь</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/arauho.png');"></div>
+                    <h3>Рональд Араухо</h3>
+                    <p>Защитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/kounde.png');"></div>
+                    <h3>Жюль Кунде</h3>
+                    <p>Защитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/mart.png');"></div>
+                    <h3>Иньиго Мартинез</h3>
+                    <p>Защитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/balde.png');"></div>
+                    <h3>Алехандро Бальде</h3>
+                    <p>Защитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/dej.png');"></div>
+                    <h3>Френки де Йонг</h3>
+                    <p>Полузащитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/pedr.png');"></div>
+                    <h3>Педри</h3>
+                    <p>Полузащитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/gavi.png');"></div>
+                    <h3>Гави</h3>
+                    <p>Полузащитник</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/yamal.png');"></div>
+                    <h3>Ламин Ямал</h3>
+                    <p>Нападающий</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/shark.png');"></div>
+                    <h3>Ферран Торрес</h3>
+                    <p>Нападающий</p>
+                </div>
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/rapha.png');"></div>
+                    <h3>Рафинья</h3>
+                    <p>Нападающий</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Тренерский штаб</h2>
+            <div class="squad-list">
+                <div class="player-card">
+                    <div class="player-photo" style="background-image: url('/media/players/flik.png');"></div>
+                    <h3>Ханс-Дитер Флик</h3>
+                    <p>Главный тренер</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; FC Barcelona Portal</p>
+        <a href="#top">Вернуться наверх</a>
+    </footer>
+    {% load static %}
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

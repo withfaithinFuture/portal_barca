@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Barcelona - История</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="page-background" style="background-image: url('/media/background/bg.png');"></div>
+    <header>
+        <h1 style="color: white !important;">История FC Barcelona</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'history' %}">История клуба</a></li>
+                <li><a href="{% url 'squad' %}">Состав команды</a></li>
+                {% if user.is_authenticated %}
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-logout">
+                        <i class="fas fa-sign-out-alt"></i> Выйти
+                    </button>
+                </form>
+                {% else %}
+                    <li><a href="{% url 'auth' %}">Войти</a></li>
+                    <li><a href="{% url 'register' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="timeline">
+            <!-- Основание клуба -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-image">
+                        <img src="/media/history/1.png"
+                             alt="Основание клуба" title="Команда 1899 года">
+                    </div>
+                    <h3><i class="fas fa-star"></i> Основание клуба</h3>
+                    <p><strong>Клуб был основан <u>29 ноября 1899 года</u> группой швейцарских, британских и каталонских футболистов во главе с Жоаном Гампером.</strong></p>
+                    <p>С самого начала <u>клуб стал символом каталонской идентичности.</u></p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-image">
+                        <img src="/media/history/2.png"
+                             alt="Первые успехи" title="Команда 1920-х годов">
+                    </div>
+                    <h3><i class="fas fa-trophy"></i> Первые успехи</h3>
+                    <p><strong>В 1920-х годах клуб выиграл свой первый чемпионат Испании и начал строить стадион Les Corts.</strong></p>
+                    <p>В 1929 году "Барселона" стала одним из основателей Ла Лиги.</p>
+                </div>
+            </div>
+
+            <!-- Эпоха Кройфа -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-image">
+                        <img src="/media/history/3.png"
+                             alt="Йохан Кройф" title="Йохан Кройф в составе Барселоны">
+                    </div>
+                    <h3><i class="fas fa-crown"></i> Эпоха Йохана Кройфа</h3>
+                    <p><strong>В 1973 году в клуб пришёл легендарный Йохан Кройф, который принёс "Барселоне" <u>первый титул чемпиона Испании за 14 лет.</u></strong></p>
+                    <p>Кройф стал иконой клуба и позже вернулся как тренер.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-image">
+                        <img src="/media/history/4.png"
+                             alt="Дрим Тим" title="Команда 'Дрим Тим'">
+                    </div>
+                    <h3><i class="fas fa-medal"></i> "Дрим Тим"</h3>
+                    <p><strong>В 1990-х годах под руководством Йохана Кройфа (как тренера) клуб создал легендарную команду, известную как "Дрим Тим".</strong></p>
+                    <p>Команда выиграла 4 чемпионских титула подряд и первый Кубок чемпионов.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-image">
+                        <img src="/media/history/5.png"
+                             alt="Эра Гвардиолы" title="Команда 2009 года">
+                    </div>
+                    <h3><i class="fas fa-chart-line"></i> Эра Гвардиолы</h3>
+                    <p><strong>В 2008-2012 годах под руководством Пепа Гвардиолы "Барселона" стала одной из величайших команд в истории футбола.</strong></p>
+                    <p>Команда выиграла 14 трофеев за 4 сезона, включая 2 Лиги чемпионов.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; FC Barcelona Portal</p>
+        <a href="#top">Вернуться наверх</a>
+    </footer>
+    {% load static %}
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
