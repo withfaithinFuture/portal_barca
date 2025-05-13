@@ -10,7 +10,7 @@ class LikeConsumer(AsyncWebsocketConsumer):
         self.user = self.scope.get("user")
 
         if isinstance(self.user, AnonymousUser):
-            await self.close(code=4001)  # Закрываем с кодом "Не авторизован"
+            await self.close(code=4001) 
             return
 
         self.content_type = self.scope['url_route']['kwargs']['content_type']
@@ -23,7 +23,6 @@ class LikeConsumer(AsyncWebsocketConsumer):
         )
         await self.accept()
 
-        # Отправляем начальные данные
         await self.send_initial_data()
 
     async def send_initial_data(self):
@@ -42,7 +41,6 @@ class LikeConsumer(AsyncWebsocketConsumer):
                 vote = int(data['vote'])
                 await self.handle_vote(vote)
 
-                # Рассылаем обновление
                 await self.send_update_to_group()
 
         except Exception as e:
@@ -53,7 +51,7 @@ class LikeConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_send(
             self.room_group_name,
             {
-                'type': 'send_like_data',  # Важно: метод должен начинаться с send_
+                'type': 'send_like_data',
                 'likes': likes,
                 'dislikes': dislikes,
                 'user_vote': user_vote
