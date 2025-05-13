@@ -18,19 +18,13 @@ mimetypes.add_type("video/mp4", ".mp4")
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-8nr1v1)o)39$g5uv8%n&c84(!(pf0*2@u)3q++a9ltzqd(@z%5'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -57,7 +51,6 @@ CHANNELS_WS_PROTOCOLS = ["websocket.auth"]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Для разработки - обслуживание медиафайлов через Django
 if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
     STATIC_URL = '/static/'
@@ -98,10 +91,6 @@ AUTH_USER_MODEL = 'users.User'
 TELEGRAM_BOT_TOKEN = '7381984415:AAErFdKYHx5vSIhS9-l4DGBjESrSHFsFuss'
 TELEGRAM_CHAT_ID = '761940787'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -109,8 +98,6 @@ DATABASES = {
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -127,9 +114,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
