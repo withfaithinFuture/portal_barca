@@ -1,7 +1,5 @@
 # FC Barcelona Fan Portal
 
-![FC Barcelona Logo](https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png)
-
 Официальный фан-портал FC Barcelona с последними новостями, историей клуба и составом команды.
 
 ## 🌟 Особенности
