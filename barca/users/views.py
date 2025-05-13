@@ -1,19 +1,15 @@
 import json
-
 from django.contrib.auth.views import LoginView
-from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.sites import requests
 from django.shortcuts import render, redirect
-from django.contrib.auth import login
 from django.views.generic import CreateView
-
 from .forms import UserRegistrationForm
+from django.contrib.auth import authenticate, login
+import requests
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import authenticate, login
-from django.conf import settings
+from django.conf import settings 
 
 def auth_view(request):
     return render(request, 'registration/auth.html')
@@ -21,7 +17,6 @@ def auth_view(request):
 @csrf_exempt
 def api_login(request):
     if request.method == 'POST':
-        # Ваш код обработки AJAX-запроса
         return JsonResponse({'success': True})
     return JsonResponse({'success': False, 'error': 'Invalid method'})
 
@@ -31,7 +26,7 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('index')  # Перенаправление после успешной регистрации
+            return redirect('index') 
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
@@ -53,7 +48,6 @@ def feedback_view(request):
     if request.method == 'POST':
         try:
             data = json.loads(request.body)
-            # Здесь обработка и сохранение feedback
             return JsonResponse({'success': True})
         except Exception as e:
             return JsonResponse({'success': False, 'error': str(e)})
@@ -80,14 +74,8 @@ def auth_view(request):
 
     return render(request, 'registration/auth.html')
 
-TELEGRAM_BOT_TOKEN = '7381984415:AAErFdKYHx5vSIhS9-l4DGBjESrSHFsFuss'
-TELEGRAM_CHAT_ID = '761940787'
-
-import requests
-import json
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.conf import settings  # Правильный импорт settings
+TELEGRAM_BOT_TOKEN = 'тут токен должен быть'
+TELEGRAM_CHAT_ID = 'а тут чат айди'
 
 
 @csrf_exempt
@@ -99,7 +87,6 @@ def feedback_view(request):
             email = data.get('email')
             message = data.get('message')
 
-            # Валидация данных
             if not all([name, email, message]):
                 return JsonResponse({'success': False, 'error': 'Все поля обязательны для заполнения'})
 
@@ -118,7 +105,7 @@ def feedback_view(request):
             }
 
             response = requests.post(url, data=payload)
-            response.raise_for_status()  # Генерирует исключение для статусов 4xx/5xx
+            response.raise_for_status()
 
             return JsonResponse({'success': True})
 
