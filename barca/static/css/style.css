@@ -189,7 +189,6 @@ p {
     margin-bottom: 1rem;
 }
 
-/* Images */
 img {
     max-width: 100%;
     height: auto;
@@ -214,7 +213,6 @@ li {
     position: relative;
 }
 
-/* Forms */
 form {
     display: flex;
     flex-direction: column;
@@ -265,7 +263,6 @@ button:hover {
     box-shadow: 0 5px 15px rgba(165, 0, 68, 0.3);
 }
 
-/* Footer */
 footer {
     background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
     color: var(--light-text);
@@ -288,7 +285,6 @@ footer a:hover {
     transform: translateY(-2px);
 }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
@@ -311,7 +307,6 @@ footer a:hover {
     100% { transform: scale(1); }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     body {
         padding-top: 70px;
@@ -343,7 +338,6 @@ footer a:hover {
     }
 }
 
-/* Special Elements */
 .highlight {
     background: linear-gradient(90deg, var(--primary-red), var(--secondary-blue));
     color: white;
@@ -352,7 +346,6 @@ footer a:hover {
     font-weight: 700;
 }
 
-/* News Items */
 .news-item {
     padding: 1.5rem;
     margin-bottom: 1.5rem;
@@ -377,7 +370,6 @@ footer a:hover {
     color: var(--dark-text);
 }
 
-/* Squad List */
 .squad-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -501,13 +493,11 @@ footer a:hover {
     }
 }
 
-/* Дополнительные исправления */
 header h1 {
     color: white !important;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-/* Размер эмблемы */
 .about-club img {
     width: 300px;
     height: auto;
@@ -518,7 +508,6 @@ header h1 {
     transform: scale(1.1);
 }
 
-/* Форма обратной связи */
 #feedback {
     max-width: 600px;
     margin: 0 auto;
@@ -542,7 +531,6 @@ header h1 {
 }
 
 
-/* Карточки игроков */
 .player-card {
     position: relative;
     min-height: 180px;
@@ -628,7 +616,7 @@ header h1 {
 }
 
 .like-btn:hover {
-    background-color: #4CAF50; /* Зелёный цвет при наведении */
+    background-color: #4CAF50;
     color: white;
 }
 
