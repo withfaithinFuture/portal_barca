@@ -14,7 +14,7 @@ function getCookie(name) {
 }
 
 document.addEventListener("DOMContentLoaded", function() {
-    // 1. Обработка формы обратной связи
+    // Обработка формы обратной связи
     const feedbackForm = document.getElementById("feedbackForm");
     if (feedbackForm) {
         feedbackForm.addEventListener("submit", function(event) {
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const email = document.getElementById("email").value.trim();
             const message = document.getElementById("message").value.trim();
 
-            // Валидация (можно добавить больше проверок)
+            // Валидация
             if (!name || !email || !message) {
                 alert("Пожалуйста, заполните все поля");
                 return;
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 2. Обработка формы авторизации
+    // Обработка формы авторизации
     const authForm = document.getElementById("authForm");
     if (authForm) {
         authForm.addEventListener("submit", async function(e) {
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const data = await response.json();
 
                 if (data.success) {
-                    window.location.href = "/"; // Перенаправление после входа
+                    window.location.href = "/";
                 } else {
                     errorElement.textContent = data.error || "Ошибка авторизации";
                     errorElement.style.display = "block";
@@ -156,11 +156,10 @@ function updateLikeUI(container, data) {
     }
 }
 
-// При подключении WebSocket
 const socket = new WebSocket(wsPath);
 
 socket.onopen = function() {
-    // Отправляем CSRF-токен для аутентификации
+    // CSRF-токен для аутентификации
     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
     socket.send(JSON.stringify({
         type: 'auth',
